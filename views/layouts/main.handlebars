@@ -16,7 +16,14 @@
 </head>
 
 <body>
-  {{{body}}}
+  {{!-- reference to partials file "navbarF.handlebars" --}}
+  {{>navbar}}
+  <div class="container">
+    {{{body}}}
+  </div>
+  {{>footer}} {{!- reference to partials file "footer.handlebars"}}
+
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
