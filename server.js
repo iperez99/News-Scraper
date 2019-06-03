@@ -6,12 +6,11 @@ var mongoose = require("mongoose");
 // Initialize Express
 var app = express();
 
-var PORT = process.env.PORT || 3000;
-
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/polygonNews";
 
 mongoose.connect(MONGODB_URI);
+
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
@@ -26,6 +25,8 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// setup port
+var PORT = process.env.PORT || 3000;
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function () {
     // Log (server-side) when our server has started
